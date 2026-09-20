@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #121513;
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-serif-botanical {
+    font-family: 'Fraunces', serif;
+  }
+
+  .font-mono-spec {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Field & Lab Panel Styling */
+.field-panel {
+  background: #181c19;
+  border: 1px solid #2a322c;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.field-panel-alert {
+  background: #241513;
+  border: 1px solid #c84b31;
+  box-shadow: 0 0 25px rgba(200, 75, 49, 0.2);
+}
+
+.field-panel-healthy {
+  background: #152219;
+  border: 1px solid #4e8752;
+  box-shadow: 0 0 25px rgba(78, 135, 82, 0.15);
+}
+
+/* Reticle Corner Marks [ + ] for Inspection Viewport */
+.reticle-corner-tl {
+  position: absolute;
+  top: 8px; left: 8px;
+  width: 14px; height: 14px;
+  border-top: 2px solid #708238;
+  border-left: 2px solid #708238;
+  pointer-events: none;
+}
+.reticle-corner-tr {
+  position: absolute;
+  top: 8px; right: 8px;
+  width: 14px; height: 14px;
+  border-top: 2px solid #708238;
+  border-right: 2px solid #708238;
+  pointer-events: none;
+}
+.reticle-corner-bl {
+  position: absolute;
+  bottom: 8px; left: 8px;
+  width: 14px; height: 14px;
+  border-bottom: 2px solid #708238;
+  border-left: 2px solid #708238;
+  pointer-events: none;
+}
+.reticle-corner-br {
+  position: absolute;
+  bottom: 8px; right: 8px;
+  width: 14px; height: 14px;
+  border-bottom: 2px solid #708238;
+  border-right: 2px solid #708238;
+  pointer-events: none;
+}
+
+/* Millimeter Grid Rulers along Viewport Edge */
+.ruler-x {
+  background-image: repeating-linear-gradient(90deg, #2a322c 0, #2a322c 1px, transparent 0, transparent 10px);
+  height: 6px;
+  width: 100%;
+}
+.ruler-y {
+  background-image: repeating-linear-gradient(0deg, #2a322c 0, #2a322c 1px, transparent 0, transparent 10px);
+  width: 6px;
+  height: 100%;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #121513;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a322c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4e8752;
+}
