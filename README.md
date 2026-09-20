@@ -2,6 +2,8 @@
 
 An automated end-to-end computer vision and hardware defense framework featuring real-time YOLOv8 pest & object detection, microclimate risk intelligence (DHT22 Temp/Humidity + Capacitive Soil Moisture), chemical-free active pest deterrence (Ultrasonic Piezo Emitter & Strobe Light), prescriptive spray calculator, and a modern field station web dashboard.
 
+**Live Demo:**
+https://git-esh-taklikar.github.io/AI-Pest-Detector/
 ---
 
 ## 🌾 Key Features
