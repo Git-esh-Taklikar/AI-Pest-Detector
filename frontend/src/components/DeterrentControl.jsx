@@ -17,50 +17,50 @@ export default function DeterrentControl({
   };
 
   return (
-    <div className={`rounded-2xl p-5 border transition-all duration-300 ${
+    <div className={`rounded-lg p-5 border transition-all duration-200 ${
       deterrentActive 
-        ? 'bg-[#140505] border-rose-600 shadow-lg shadow-rose-950/50' 
-        : 'bg-[#080808] border-[#1a1a1a]'
+        ? 'bg-[#211917] border-[#b85438]' 
+        : 'bg-[#1a1e1b] border-[#29312b]'
     }`}>
       
       {/* Component Header */}
-      <div className="flex items-center justify-between pb-3 border-b border-[#1c1c1c]">
+      <div className="flex items-center justify-between pb-3 border-b border-[#29312b]">
         <div className="flex items-center gap-2">
-          <div className={`p-2 rounded-lg border transition-all ${
-            deterrentActive ? 'bg-rose-500/20 text-rose-400 border-rose-500/40 animate-pulse' : 'bg-rose-500/10 text-rose-400 border-rose-500/20'
+          <div className={`p-2 rounded border ${
+            deterrentActive ? 'bg-[#b85438]/20 text-[#e06d50] border-[#b85438]' : 'bg-[#6e814c]/15 text-[#6e814c] border-[#6e814c]/30'
           }`}>
             <Zap className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-lg font-bold text-white tracking-tight">Active Crop Defense Unit</h2>
-            <p className="text-xs text-slate-400">Chemical-Free Pest Repeller (High-Frequency Sound & Bright Flashing Light)</p>
+            <h2 className="text-base font-bold text-[#e8e4d9] font-serif-botanical tracking-tight">Active Preventative Emitter Unit</h2>
+            <p className="text-xs text-slate-400 font-mono-spec">CHEMICAL-FREE PEST REPELLER • ACOUSTIC WAVES & STROBE LIGHT</p>
           </div>
         </div>
 
         {/* Auto Defense Switch */}
         <button
           onClick={() => setAutoEnabled(!autoEnabled)}
-          className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all ${
+          className={`flex items-center gap-2 px-3 py-1.5 rounded border text-xs font-mono-spec font-semibold transition-all ${
             autoEnabled 
-              ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' 
-              : 'bg-[#111] border-[#222] text-slate-400'
+              ? 'bg-[#17201a] border-[#4a634e] text-[#8a9f65]' 
+              : 'bg-[#141715] border-[#29312b] text-slate-400'
           }`}
         >
-          {autoEnabled ? <ToggleRight className="w-5 h-5 text-emerald-400" /> : <ToggleLeft className="w-5 h-5 text-slate-500" />}
-          <span>Automatic Defense: {autoEnabled ? 'ON 🟢' : 'OFF ⚪'}</span>
+          {autoEnabled ? <ToggleRight className="w-4 h-4 text-[#8a9f65]" /> : <ToggleLeft className="w-4 h-4 text-slate-500" />}
+          <span>AUTOMATIC REPELLER: {autoEnabled ? 'ACTIVE' : 'OFF'}</span>
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 font-mono-spec text-xs">
         
-        {/* Sound Repeller Control */}
-        <div className="p-4 rounded-xl bg-[#0f0f0f] border border-[#222] flex flex-col gap-3">
+        {/* Sound Emitter Control */}
+        <div className="p-4 rounded bg-[#141715] border border-[#29312b] flex flex-col gap-3">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs font-semibold text-slate-200">
-              <Volume2 className="w-4 h-4 text-cyan-400" />
+            <div className="flex items-center gap-2 text-slate-200">
+              <Volume2 className="w-4 h-4 text-[#8a9f65]" />
               <span>High-Frequency Sound Emitter</span>
             </div>
-            <span className="text-xs font-bold text-cyan-400">Pest Distress Level</span>
+            <span className="font-bold text-[#8a9f65]">{frequencyKhz} kHz</span>
           </div>
           <input
             type="range"
@@ -69,19 +69,19 @@ export default function DeterrentControl({
             step="0.5"
             value={frequencyKhz}
             onChange={(e) => setFrequencyKhz(parseFloat(e.target.value))}
-            className="w-full accent-cyan-400 cursor-pointer"
+            className="w-full accent-[#6e814c] cursor-pointer"
           />
-          <span className="text-[11px] text-slate-400">Emits acoustic waves that drive away crop-damaging insects.</span>
+          <span className="text-[11px] text-slate-500">Emits targeted acoustic frequencies to distress insect acoustic receptors.</span>
         </div>
 
-        {/* Flashing Light Deterrent Control */}
-        <div className="p-4 rounded-xl bg-[#0f0f0f] border border-[#222] flex flex-col gap-3">
+        {/* Flashing Light Strobe Control */}
+        <div className="p-4 rounded bg-[#141715] border border-[#29312b] flex flex-col gap-3">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs font-semibold text-slate-200">
-              <Sparkles className="w-4 h-4 text-amber-400" />
-              <span>Flashing Light Strobe</span>
+            <div className="flex items-center gap-2 text-slate-200">
+              <Sparkles className="w-4 h-4 text-[#c99e32]" />
+              <span>Strobe Light Flash Speed</span>
             </div>
-            <span className="text-xs font-bold text-amber-400">Flash Speed</span>
+            <span className="font-bold text-[#c99e32]">{strobeHz} Hz</span>
           </div>
           <input
             type="range"
@@ -90,34 +90,34 @@ export default function DeterrentControl({
             step="1.0"
             value={strobeHz}
             onChange={(e) => setStrobeHz(parseFloat(e.target.value))}
-            className="w-full accent-amber-400 cursor-pointer"
+            className="w-full accent-[#c99e32] cursor-pointer"
           />
-          <span className="text-[11px] text-slate-400">Flashes bright light pulses to deter night-active crop pests.</span>
+          <span className="text-[11px] text-slate-500">Pulsating light beam disrupts nocturnal foliage pests.</span>
         </div>
 
       </div>
 
       {/* Manual Defense Button */}
-      <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 p-3 rounded-xl bg-[#050505] border border-[#1c1c1c]">
-        <div className="text-xs text-slate-400">
-          <span className="font-semibold text-slate-200">Defense System Status:</span>{' '}
+      <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 p-3 rounded bg-[#141715] border border-[#29312b] font-mono-spec text-xs">
+        <div className="text-slate-400">
+          <span className="font-semibold text-slate-200">Emitter Status:</span>{' '}
           {deterrentActive ? (
-            <span className="text-rose-400 font-bold">REPELLING PESTS (SOUND & LIGHT ACTIVE)</span>
+            <span className="text-[#e06d50] font-bold">ACTIVE EMITTING (SOUND & LIGHT REPELLER ON)</span>
           ) : (
-            <span>Ready to activate on demand or automatically.</span>
+            <span>Ready for manual deployment or automated AI trigger.</span>
           )}
         </div>
 
         <button
           onClick={handleManualToggle}
-          className={`w-full sm:w-auto px-6 py-2.5 rounded-xl font-bold text-xs shadow-lg transition-all flex items-center justify-center gap-2 ${
+          className={`w-full sm:w-auto px-5 py-2 rounded font-bold transition-all flex items-center justify-center gap-2 ${
             deterrentActive 
-              ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-rose-600/40 animate-pulse' 
-              : 'bg-emerald-500 hover:bg-emerald-400 text-black shadow-emerald-500/20'
+              ? 'bg-[#b85438] hover:bg-[#9e432a] text-white' 
+              : 'bg-[#6e814c] hover:bg-[#8a9f65] text-[#141715]'
           }`}
         >
           <Activity className="w-4 h-4" />
-          {deterrentActive ? 'TURN OFF PEST DEFENSE' : 'RUN PEST DEFENSE NOW ⚡'}
+          {deterrentActive ? 'DISARM REPELLER' : 'ACTIVATE PEST DEFENSE NOW'}
         </button>
       </div>
 

@@ -18,106 +18,105 @@ export default function AnalyticsLog({ historyData, alertLogs }) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `crop_health_log_${Date.now()}.json`;
+    a.download = `agri_spec_log_${Date.now()}.json`;
     a.click();
   };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
       
-      {/* Real-time Crop Threat Trend Chart */}
-      <div className="lg:col-span-2 bg-[#080808] rounded-2xl p-5 border border-[#1a1a1a] flex flex-col gap-4">
-        <div className="flex items-center justify-between pb-3 border-b border-[#1c1c1c]">
+      {/* Telemetry Timeline Chart */}
+      <div className="lg:col-span-2 agri-card rounded-lg p-5 border border-[#29312b] flex flex-col gap-4">
+        <div className="flex items-center justify-between pb-3 border-b border-[#29312b]">
           <div className="flex items-center gap-2">
-            <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            <div className="p-2 rounded bg-[#6e814c]/15 text-[#6e814c] border border-[#6e814c]/30">
               <Activity className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-white tracking-tight">Crop Threat & Disease Timeline</h2>
-              <p className="text-xs text-slate-400">Pest Outbreak & Microclimate Risk Monitoring</p>
+              <h2 className="text-base font-bold text-[#e8e4d9] font-serif-botanical tracking-tight">Crop Threat & Disease Timeline</h2>
+              <p className="text-xs text-slate-400 font-mono-spec">TELEMETRY MATRIX • REAL-TIME EPIDEMIC MONITOR</p>
             </div>
           </div>
-          <div className="flex items-center gap-3 text-xs">
-            <span className="flex items-center gap-1 text-emerald-400 font-semibold">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Disease Risk Index (%)
+          <div className="flex items-center gap-3 text-xs font-mono-spec">
+            <span className="flex items-center gap-1 text-[#8a9f65]">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#6e814c]"></span> Disease Risk Index (%)
             </span>
-            <span className="flex items-center gap-1 text-rose-400 font-semibold">
-              <span className="w-2.5 h-2.5 rounded-full bg-rose-400"></span> Spotted Pests
+            <span className="flex items-center gap-1 text-[#e06d50]">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#b85438]"></span> Spotted Pests
             </span>
           </div>
         </div>
 
-        {/* Chart Viewport */}
+        {/* Chart */}
         <div className="w-full h-56 pt-2">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
               <defs>
                 <linearGradient id="colorRisk" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.4}/>
-                  <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                  <stop offset="5%" stopColor="#6e814c" stopOpacity={0.4}/>
+                  <stop offset="95%" stopColor="#6e814c" stopOpacity={0}/>
                 </linearGradient>
                 <linearGradient id="colorPests" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#f43f5e" stopOpacity={0.5}/>
-                  <stop offset="95%" stopColor="#f43f5e" stopOpacity={0}/>
+                  <stop offset="5%" stopColor="#b85438" stopOpacity={0.5}/>
+                  <stop offset="95%" stopColor="#b85438" stopOpacity={0}/>
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#1c1c1c" />
-              <XAxis dataKey="time" stroke="#64748b" fontSize={11} />
-              <YAxis stroke="#64748b" fontSize={11} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#29312b" />
+              <XAxis dataKey="time" stroke="#64748b" fontSize={10} fontFamily="JetBrains Mono" />
+              <YAxis stroke="#64748b" fontSize={10} fontFamily="JetBrains Mono" />
               <Tooltip 
-                contentStyle={{ backgroundColor: '#0a0a0a', borderColor: '#222', borderRadius: '8px', fontSize: '12px' }}
-                itemStyle={{ color: '#f8fafc' }}
+                contentStyle={{ backgroundColor: '#141715', borderColor: '#29312b', borderRadius: '4px', fontSize: '11px', fontFamily: 'JetBrains Mono' }}
+                itemStyle={{ color: '#e8e4d9' }}
               />
-              <Area type="monotone" dataKey="risk" stroke="#10b981" strokeWidth={2} fillOpacity={1} fill="url(#colorRisk)" name="Risk Score (%)" />
-              <Area type="monotone" dataKey="pests" stroke="#f43f5e" strokeWidth={2} fillOpacity={1} fill="url(#colorPests)" name="Pest Count" />
+              <Area type="monotone" dataKey="risk" stroke="#6e814c" strokeWidth={2} fillOpacity={1} fill="url(#colorRisk)" name="Disease Risk (%)" />
+              <Area type="monotone" dataKey="pests" stroke="#b85438" strokeWidth={2} fillOpacity={1} fill="url(#colorPests)" name="Spotted Pests" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
       </div>
 
-      {/* Historical Alert Feed Log */}
-      <div className="bg-[#080808] rounded-2xl p-5 border border-[#1a1a1a] flex flex-col gap-3">
-        <div className="flex items-center justify-between pb-3 border-b border-[#1c1c1c]">
+      {/* Field Log Feed */}
+      <div className="agri-card rounded-lg p-5 border border-[#29312b] flex flex-col gap-3">
+        <div className="flex items-center justify-between pb-3 border-b border-[#29312b]">
           <div className="flex items-center gap-2">
-            <div className="p-2 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20">
+            <div className="p-2 rounded bg-[#c99e32]/15 text-[#c99e32] border border-[#c99e32]/30">
               <Bell className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-white tracking-tight">Field Log & Crop Alerts</h2>
-              <p className="text-xs text-slate-400">Pest Defense Events</p>
+              <h2 className="text-base font-bold text-[#e8e4d9] font-serif-botanical tracking-tight">Field Station Event Log</h2>
+              <p className="text-xs text-slate-400 font-mono-spec">TIMESTAMPED RECORDS</p>
             </div>
           </div>
           <button
             onClick={exportLogsCSV}
-            className="p-1.5 rounded-lg bg-[#111] hover:bg-[#222] border border-[#222] text-slate-400 hover:text-white transition-all"
-            title="Download Crop Health Report"
+            className="p-1.5 rounded bg-[#141715] hover:bg-[#29312b] border border-[#29312b] text-slate-400 hover:text-white transition-all"
+            title="Download Agronomic Log"
           >
             <Download className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Scrollable Feed List */}
-        <div className="flex flex-col gap-2 max-h-56 overflow-y-auto pr-1">
+        <div className="flex flex-col gap-2 max-h-56 overflow-y-auto pr-1 font-mono-spec">
           {alertLogs && alertLogs.length > 0 ? (
             alertLogs.map((log) => (
               <div 
                 key={log.id || Math.random()} 
-                className="p-3 rounded-xl bg-[#0f0f0f] border border-[#222] flex flex-col gap-1 text-xs hover:border-[#333] transition-all"
+                className="p-2.5 rounded bg-[#141715] border border-[#29312b] flex flex-col gap-1 text-xs hover:border-[#4a634e] transition-all"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-rose-400 flex items-center gap-1">
+                  <span className="font-bold text-[#e06d50] flex items-center gap-1">
                     <ShieldAlert className="w-3.5 h-3.5" />
                     {log.type}
                   </span>
-                  <span className="text-[10px] text-slate-500 font-mono">{log.timestamp}</span>
+                  <span className="text-[10px] text-slate-500 font-mono-spec">{log.timestamp}</span>
                 </div>
-                <p className="text-slate-300 font-medium">{log.message}</p>
+                <p className="text-slate-300">{log.message}</p>
               </div>
             ))
           ) : (
-            <div className="text-center text-slate-500 text-xs py-10 flex flex-col items-center gap-2">
+            <div className="text-center text-slate-500 text-xs py-10 flex flex-col items-center gap-2 font-mono-spec">
               <History className="w-6 h-6 text-slate-600" />
-              <span>No alerts recorded in current session</span>
+              <span>No field events logged in current session</span>
             </div>
           )}
         </div>

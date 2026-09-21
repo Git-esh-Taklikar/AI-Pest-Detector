@@ -4,13 +4,13 @@
 
 @layer base {
   body {
-    background-color: #121513;
-    color: #e2e8f0;
+    background-color: #141715;
+    color: #e8e4d9;
     font-family: 'Inter', sans-serif;
   }
-  
-  .font-serif-botanical {
-    font-family: 'Fraunces', serif;
+
+  h1, h2, h3, h4, .font-serif-botanical {
+    font-family: 'Fraunces', Georgia, serif;
   }
 
   .font-mono-spec {
@@ -18,68 +18,68 @@
   }
 }
 
-/* Field & Lab Panel Styling */
-.field-panel {
-  background: #181c19;
-  border: 1px solid #2a322c;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+/* Grounded Agronomic Workstation Cards & Panels */
+.agri-card {
+  background-color: #1a1e1b;
+  border: 1px solid #29312b;
+  border-radius: 6px;
 }
 
-.field-panel-alert {
-  background: #241513;
-  border: 1px solid #c84b31;
-  box-shadow: 0 0 25px rgba(200, 75, 49, 0.2);
+.agri-card-alert {
+  background-color: #211917;
+  border: 1px solid #b85438;
+  border-radius: 6px;
 }
 
-.field-panel-healthy {
-  background: #152219;
-  border: 1px solid #4e8752;
-  box-shadow: 0 0 25px rgba(78, 135, 82, 0.15);
+.agri-card-safe {
+  background-color: #17201a;
+  border: 1px solid #4a634e;
+  border-radius: 6px;
 }
 
-/* Reticle Corner Marks [ + ] for Inspection Viewport */
+/* Reticle Corner Marks [ + ] */
 .reticle-corner-tl {
   position: absolute;
-  top: 8px; left: 8px;
-  width: 14px; height: 14px;
-  border-top: 2px solid #708238;
-  border-left: 2px solid #708238;
+  top: 6px; left: 6px;
+  width: 12px; height: 12px;
+  border-top: 2px solid #6e814c;
+  border-left: 2px solid #6e814c;
   pointer-events: none;
 }
 .reticle-corner-tr {
   position: absolute;
-  top: 8px; right: 8px;
-  width: 14px; height: 14px;
-  border-top: 2px solid #708238;
-  border-right: 2px solid #708238;
+  top: 6px; right: 6px;
+  width: 12px; height: 12px;
+  border-top: 2px solid #6e814c;
+  border-right: 2px solid #6e814c;
   pointer-events: none;
 }
 .reticle-corner-bl {
   position: absolute;
-  bottom: 8px; left: 8px;
-  width: 14px; height: 14px;
-  border-bottom: 2px solid #708238;
-  border-left: 2px solid #708238;
+  bottom: 6px; left: 6px;
+  width: 12px; height: 12px;
+  border-bottom: 2px solid #6e814c;
+  border-left: 2px solid #6e814c;
   pointer-events: none;
 }
 .reticle-corner-br {
   position: absolute;
-  bottom: 8px; right: 8px;
-  width: 14px; height: 14px;
-  border-bottom: 2px solid #708238;
-  border-right: 2px solid #708238;
+  bottom: 6px; right: 6px;
+  width: 12px; height: 12px;
+  border-bottom: 2px solid #6e814c;
+  border-right: 2px solid #6e814c;
   pointer-events: none;
 }
 
-/* Millimeter Grid Rulers along Viewport Edge */
+/* Rulers along Viewport Edges */
 .ruler-x {
-  background-image: repeating-linear-gradient(90deg, #2a322c 0, #2a322c 1px, transparent 0, transparent 10px);
-  height: 6px;
+  background-image: repeating-linear-gradient(90deg, #29312b 0, #29312b 1px, transparent 0, transparent 10px);
+  height: 5px;
   width: 100%;
 }
 .ruler-y {
-  background-image: repeating-linear-gradient(0deg, #2a322c 0, #2a322c 1px, transparent 0, transparent 10px);
-  width: 6px;
+  background-image: repeating-linear-gradient(0deg, #29312b 0, #29312b 1px, transparent 0, transparent 10px);
+  width: 5px;
   height: 100%;
 }
 
@@ -89,12 +89,12 @@
   height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #121513;
+  background: #141715;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a322c;
-  border-radius: 4px;
+  background: #29312b;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #4e8752;
+  background: #6e814c;
 }
